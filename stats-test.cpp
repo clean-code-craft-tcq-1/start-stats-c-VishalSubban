@@ -3,7 +3,6 @@
 #include "catch.hpp"
 #include "stats.h"
 
-#include <stdlib.h>
 #include <math.h>
 
 TEST_CASE("reports average, minimum and maximum") {
