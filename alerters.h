@@ -1,3 +1,4 @@
+/*************************************************** FUNCTION PROTOTYPES ********************************************/
 
 /* Func Name: emailAlerter
    Description: Raises an email alert based on conditions
