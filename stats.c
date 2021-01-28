@@ -2,8 +2,8 @@
 
 stats_s compute_statistics(float* numberset, int setlength)
 {
-    int i, key, j;
-    float sum = 0;
+    int i, j;
+    float key = 0, sum = 0;
     stats_s statisticalData;
     
     /* Average of numbers */
