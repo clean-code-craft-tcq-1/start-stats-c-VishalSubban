@@ -26,22 +26,6 @@ TEST_CASE("average is NaN for empty array") {
     REQUIRE(isnan(computedStats.average) == TRUE);
 }
 
-TEST_CASE("raises alerts when max is greater than threshold") {
-    alerter_funcptr alerters[] = {emailAlerter, ledAlerter};
-
-    float numberset[] = {99.8, 34.2, 4.5};
-    int setlength = sizeof(numberset) / sizeof(numberset[0]);
-    stats_s computedStats = compute_statistics(numberset, setlength);
-
-    const float maxThreshold = 10.2;
-    check_and_alert(maxThreshold, alerters, computedStats);
-
-    // need a way to check if both emailAlerter, ledAlerter were called
-    // you can define call-counters along with the functions, as shown below
-    REQUIRE(emailAlertCallCount == 1);
-    REQUIRE(ledAlertCallCount == 1);
-}
-
 TEST_CASE("do not raises alerts when max is lesser than threshold") {
     alerter_funcptr alerters[] = {emailAlerter, ledAlerter};
 
@@ -56,4 +40,20 @@ TEST_CASE("do not raises alerts when max is lesser than threshold") {
     // you can define call-counters along with the functions, as shown below
     REQUIRE(emailAlertCallCount == 0);
     REQUIRE(ledAlertCallCount == 0);
+}
+
+TEST_CASE("raises alerts when max is greater than threshold") {
+    alerter_funcptr alerters[] = {emailAlerter, ledAlerter};
+
+    float numberset[] = {99.8, 34.2, 4.5};
+    int setlength = sizeof(numberset) / sizeof(numberset[0]);
+    stats_s computedStats = compute_statistics(numberset, setlength);
+
+    const float maxThreshold = 10.2;
+    check_and_alert(maxThreshold, alerters, computedStats);
+
+    // need a way to check if both emailAlerter, ledAlerter were called
+    // you can define call-counters along with the functions, as shown below
+    REQUIRE(emailAlertCallCount == 1);
+    REQUIRE(ledAlertCallCount == 1);
 }
