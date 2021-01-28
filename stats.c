@@ -1,8 +1,11 @@
+/******************************************************* INCLUDES *******************************************************/
 #include "stats.h"
 
+/******************************************************* VARIABES & TYPES ********************************************/
 int emailAlertCallCount = 0;
 int ledAlertCallCount = 0;
 
+/*************************************************** FUNCTION DEFINITIONS ********************************************/
 stats_s compute_statistics(float* numberset, int setlength)
 {
     int i, j;
