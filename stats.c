@@ -6,6 +6,13 @@ stats_s compute_statistics(float* numberset, int setlength)
 {
     stats_s statisticalData;
     
+    /* Average of numbers */
+    for(i=0;i<setlength;i++)
+    {
+        sum += numberset[i];
+    }
+    statisticalData.average = sum/setlength;
+    
     /* Sorting range of numbers */
     for (i = 1; i < n; i++) 
     { 
@@ -20,13 +27,6 @@ stats_s compute_statistics(float* numberset, int setlength)
     
     statisticalData.min = numberset[0];
     statisticalData.max = numberset[setlength-1]; 
-        
-    /* Average of numbers */
-    for(i=0;i<setlength;i++)
-    {
-        sum += numberset[i];
-    }
-    statisticalData.average = sum/setlength;
 
     return statisticalData;
 }
