@@ -1,5 +1,8 @@
 #include "stats.h"
 
+int emailAlertCallCount = 0;
+int ledAlertCallCount = 0;
+
 stats_s compute_statistics(float* numberset, int setlength)
 {
     int i, j;
@@ -31,5 +34,19 @@ stats_s compute_statistics(float* numberset, int setlength)
     return statisticalData;
 }
 
-int emailAlertCallCount = 0;
-int ledAlertCallCount = 0;
+
+
+check_and_alert(float maxThreshold, alerter_funcptr alerters[], stats_s computedStats)
+{
+    if(computedStats.max > maxThreshold)
+    {
+        if(alerters[0] != NULL)
+        {
+            (*alerters[0])();
+        }
+        if(alerters[1] != NULL)
+        {
+            (*alerters[1])();
+        }
+    }
+}
