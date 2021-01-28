@@ -2,9 +2,9 @@
 
 int i, key, j, sum = 0;
 
-struct Stats compute_statistics(const float* numberset, int setlength)
+stats_s compute_statistics(const float* numberset, int setlength)
 {
-    struct Stats s;
+    stats_s statisticalData;
     
     /* Sorting range of numbers */
     for (i = 1; i < n; i++) 
@@ -18,15 +18,15 @@ struct Stats compute_statistics(const float* numberset, int setlength)
         numberset[j + 1] = key; 
     }
     
-    s.min = numberset[0];
-    s.max = numberset[setlength-1]; 
+    statisticalData.min = numberset[0];
+    statisticalData.max = numberset[setlength-1]; 
         
     /* Average of numbers */
     for(i=0;i<setlength;i++)
     {
         sum += numberset[i];
     }
-    s.average = sum/setlength;
+    statisticalData.average = sum/setlength;
 
 }
 
