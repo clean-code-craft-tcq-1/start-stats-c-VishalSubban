@@ -1,8 +1,8 @@
 #include "stats.h"
 
-int i, key, j, sum = 0;
+int i, key, j, n, sum = 0;
 
-stats_s compute_statistics(const float* numberset, int setlength)
+stats_s compute_statistics(float* numberset, int setlength)
 {
     stats_s statisticalData;
     
@@ -28,6 +28,7 @@ stats_s compute_statistics(const float* numberset, int setlength)
     }
     statisticalData.average = sum/setlength;
 
+    return statisticalData;
 }
 
 int emailAlertCallCount = 0;
