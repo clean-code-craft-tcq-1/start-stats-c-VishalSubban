@@ -8,27 +8,27 @@ int ledAlertCallCount = 0;
 /*************************************************** FUNCTION DEFINITIONS ********************************************/
 stats_s compute_statistics(float* numberset, int setlength)
 {
-    int i, j;
-    float key = 0, sum = 0;
+    int index, swapIndex;
+    float keyValue = 0, sum = 0;
     stats_s statisticalData;
     
     /* Average of numbers */
-    for(i=0;i<setlength;i++)
+    for(index=0;index<setlength;index++)
     {
-        sum += numberset[i];
+        sum += numberset[index];
     }
     statisticalData.average = sum/setlength;
     
     /* Sorting range of numbers */
-    for (i = 1; i < setlength; i++) 
+    for (index = 1; index < setlength; index++) 
     { 
-        key = numberset[i]; 
-        j = i - 1; 
-        while (j >= 0 && numberset[j] > key) { 
-            numberset[j + 1] = numberset[j]; 
-            j = j - 1; 
+        keyValue = numberset[index]; 
+        swapIndex = index - 1; 
+        while (swapIndex >= 0 && numberset[swapIndex] > keyValue) { 
+            numberset[swapIndex + 1] = numberset[swapIndex]; 
+            swapIndex = swapIndex - 1; 
         } 
-        numberset[j + 1] = key; 
+        numberset[swapIndex + 1] = keyValue; 
     }
     
     statisticalData.min = numberset[0];
