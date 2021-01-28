@@ -19,8 +19,8 @@ TEST_CASE("reports average, minimum and maximum") {
 
 
 TEST_CASE("average is NaN for empty array") {
-    float numberset[4] = {NULL,NULL,NULL,NULL};
     int setlength = 0;
+    float numberset[4] = {1.5/setlength, 8.9/setlength, 3.2/setlength, 4.5/setlength};
     stats_s computedStats;
     computedStats = compute_statistics(numberset, setlength);
     
