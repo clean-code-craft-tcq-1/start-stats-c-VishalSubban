@@ -1,9 +1,9 @@
 #include "stats.h"
 
-int i, key, j, n, sum = 0;
-
 stats_s compute_statistics(float* numberset, int setlength)
 {
+    int i, key, j, n;
+    float sum = 0;
     stats_s statisticalData;
     
     /* Average of numbers */
