@@ -36,7 +36,7 @@ stats_s compute_statistics(float* numberset, int setlength)
 
 
 
-check_and_alert(float maxThreshold, alerter_funcptr alerters[], stats_s computedStats)
+void check_and_alert(float maxThreshold, alerter_funcptr alerters[], stats_s computedStats)
 {
     if(computedStats.max > maxThreshold)
     {
