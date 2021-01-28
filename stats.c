@@ -2,7 +2,7 @@
 
 stats_s compute_statistics(float* numberset, int setlength)
 {
-    int i, key, j, n;
+    int i, key, j;
     float sum = 0;
     stats_s statisticalData;
     
@@ -14,7 +14,7 @@ stats_s compute_statistics(float* numberset, int setlength)
     statisticalData.average = sum/setlength;
     
     /* Sorting range of numbers */
-    for (i = 1; i < n; i++) 
+    for (i = 1; i < setlength; i++) 
     { 
         key = numberset[i]; 
         j = i - 1; 
